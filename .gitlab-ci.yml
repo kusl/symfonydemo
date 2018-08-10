@@ -7,6 +7,7 @@ build:latest:
     - apt-get update
     - apt-get install -y --no-install-recommends git zip
     - curl --silent --show-error https://getcomposer.org/installer | php
+    - composer --version 
     - composer install
     - ./vendor/bin/simple-phpunit
     - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
