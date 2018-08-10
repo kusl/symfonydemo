@@ -1,27 +1,30 @@
-#build:latest:
-#  image: fedora:latest
-#  script:
-#    - dnf upgrade --refresh -y
-#    - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm which -y
-#    - composer --version
-#    - cat .env.dist
-#    - cp .env.dist .env
-#    - composer install
-#    - ./vendor/bin/simple-phpunit
-#    - node --version
-#    - npm --version
-#    - npm install -g yarn
-#    - yarn install node-sass
-#    - yarn install
-
 services:
 - postgres
 
 variables:
   # Configure postgres service (https://hub.docker.com/_/postgres/)
-  POSTGRES_DB: custom_db
-  POSTGRES_USER: custom_user
-  POSTGRES_PASSWORD: custom_pass
+  POSTGRES_DB: symfonydatabase
+  POSTGRES_USER: symfonyuser
+  POSTGRES_PASSWORD: symfonypassword
+
+build:latest:
+  image: fedora:latest
+  script:
+  - echo $POSTGRES_PASSWORD
+  - echo $POSTGRES_USER
+  - echo $POSTGRES_DB
+  - dnf upgrade --refresh -y
+  - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm which -y
+  - composer --version
+  - cat .env.dist
+  - cp .env.dist .env
+  - composer install
+  - ./vendor/bin/simple-phpunit
+  - node --version
+  - npm --version
+  - npm install -g yarn
+  - yarn install node-sass
+  - yarn install
 
 connect:
   image: postgres
