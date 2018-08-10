@@ -13,3 +13,10 @@ build:latest:
     - composer install
     - ./vendor/bin/simple-phpunit
     - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    - which nvm
+    - nvm --version
+    - nvm install node
+    - node --version
+    - npm --version
+    - npm install -g yarn
+    - yarn install 
