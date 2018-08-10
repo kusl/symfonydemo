@@ -2,7 +2,7 @@ build:latest:
   image: fedora:latest
   script:
     - dnf upgrade --refresh -y
-    - dnf install php php-devel php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer -y
+    - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer -y
     - composer --version
     - composer install
     - ./vendor/bin/simple-phpunit
