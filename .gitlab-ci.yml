@@ -7,10 +7,10 @@ build:latest:
   - cat .env.dist
   - cp .env.dist .env
   - composer install
-  - bin/console doctrine:database:create
-  - ./vendor/bin/simple-phpunit
   - node --version
   - npm --version
   - npm install -g yarn
   - yarn install node-sass
   - yarn install
+  - bin/console doctrine:database:create
+  - ./vendor/bin/simple-phpunit
