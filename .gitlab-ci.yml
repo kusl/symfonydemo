@@ -8,7 +8,7 @@ build:latest:
     - apt-get install -y --no-install-recommends git zip
     - curl --silent --show-error https://getcomposer.org/installer | php
     - mv composer.phar /usr/bin/composer
-    - chmod +x composer
+    - chmod +x /usr/bin/composer
     - composer --version
     - composer install
     - ./vendor/bin/simple-phpunit
