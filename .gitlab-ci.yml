@@ -5,7 +5,7 @@ build:latest:
     - pwd
     - ls -a
     - apt-get update
-    - apt-get install -y --no-install-recommends git zip
+    - apt-get install -y git zip php-zip
     - curl --silent --show-error https://getcomposer.org/installer | php
     - mv composer.phar /usr/bin/composer
     - chmod +x /usr/bin/composer
