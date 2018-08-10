@@ -14,6 +14,7 @@ build:latest:
   - echo $POSTGRES_USER
   - echo $POSTGRES_DB
   - dnf upgrade --refresh -y
+  - bin/console doctrine:database:create
   - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm which -y
   - composer --version
   - cat .env.dist
