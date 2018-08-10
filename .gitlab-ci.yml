@@ -4,6 +4,8 @@ build:latest:
     - dnf upgrade --refresh -y
     - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm -y
     - composer --version
+    - cat .env.dist
+    - cp .env.dist .env
     - composer install
     - ./vendor/bin/simple-phpunit
     - node --version
