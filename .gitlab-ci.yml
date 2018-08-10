@@ -1,22 +1,20 @@
 build:latest:
-  image: php:latest
+  image: fedora:latest
   script:
-    - php --version
-    - pwd
-    - ls -a
-    - apt-get update
-    - apt-get install -y git zip php7.0-zip
-    - curl --silent --show-error https://getcomposer.org/installer | php
-    - mv composer.phar /usr/bin/composer
-    - chmod +x /usr/bin/composer
+    - dnf upgrade --refresh -y
+    - dnf install php php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache  composer -y
     - composer --version
     - composer install
     - ./vendor/bin/simple-phpunit
     - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    - export NVM_DIR="$HOME/.nvm"
+    - [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    - [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
     - which nvm
     - nvm --version
     - nvm install node
     - node --version
     - npm --version
     - npm install -g yarn
+    - yarn install node-sass
     - yarn install
