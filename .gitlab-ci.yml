@@ -1,15 +1,32 @@
-build:latest:
-  image: fedora:latest
+#build:latest:
+#  image: fedora:latest
+#  script:
+#    - dnf upgrade --refresh -y
+#    - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm which -y
+#    - composer --version
+#    - cat .env.dist
+#    - cp .env.dist .env
+#    - composer install
+#    - ./vendor/bin/simple-phpunit
+#    - node --version
+#    - npm --version
+#    - npm install -g yarn
+#    - yarn install node-sass
+#    - yarn install
+
+services:
+- postgres
+
+variables:
+  # Configure postgres service (https://hub.docker.com/_/postgres/)
+  POSTGRES_DB: custom_db
+  POSTGRES_USER: custom_user
+  POSTGRES_PASSWORD: custom_pass
+
+connect:
+  image: postgres
   script:
-    - dnf upgrade --refresh -y
-    - dnf install php php-devel sqlite php-xml php-mbstring php-pdo zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm which -y
-    - composer --version
-    - cat .env.dist
-    - cp .env.dist .env
-    - composer install
-    - ./vendor/bin/simple-phpunit
-    - node --version
-    - npm --version
-    - npm install -g yarn
-    - yarn install node-sass
-    - yarn install
+  # official way to provide password to psql: http://www.postgresql.org/docs/9.3/static/libpq-envars.html
+  - export PGPASSWORD=$POSTGRES_PASSWORD
+  - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
+
