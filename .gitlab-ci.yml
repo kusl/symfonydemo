@@ -10,7 +10,7 @@ build:latest:
   - node --version
   - npm --version
   - npm install -g yarn
-  - yarn install node-sass
+  - yarn add node-sass
   - yarn install
   - bin/console doctrine:database:create
   - ./vendor/bin/simple-phpunit
