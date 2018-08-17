@@ -2,7 +2,7 @@ build:latest:
   image: fedora:latest
   script:
   - dnf upgrade --refresh -y
-  - dnf install php php-devel sqlite php-xml php-mbstring php-pdo php-pgsql zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer node npm which -y
+  - dnf install php php-devel sqlite php-xml php-mbstring php-pdo php-pgsql zip php-zip php-json php-gd php-ldap php-twig2 php-opcache php-mysqlnd php-pecl-pq composer npm which -y
   - composer --version
   - cat .env.dist
   - cp .env.dist .env
@@ -18,4 +18,6 @@ build:latest:
   - touch /builds/kush/symfony-demo/var/data/blog_test.sqlite
   - ls -l /builds/kush/symfony-demo/var/data
   - bin/console doctrine:database:create
+  - free -h
+  - free -m
   - ./vendor/bin/simple-phpunit
