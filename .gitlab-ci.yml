@@ -13,3 +13,7 @@ build:latest:
   - yarn add node-sass
   - yarn install
   - pwd
+  - mkdir -p /builds/kush/symfony-demo/var/data
+  - touch /builds/kush/symfony-demo/var/data/blog.sqlite
+  - touch /builds/kush/symfony-demo/var/data/blog_test.sqlite
+  - ls -l /builds/kush/symfony-demo/var/data
