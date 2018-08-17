@@ -18,6 +18,4 @@ build:latest:
   - touch /builds/kush/symfony-demo/var/data/blog_test.sqlite
   - ls -l /builds/kush/symfony-demo/var/data
   - bin/console doctrine:database:create
-  - free -h
-  - free -m
   - ./vendor/bin/simple-phpunit
