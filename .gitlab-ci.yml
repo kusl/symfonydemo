@@ -12,3 +12,4 @@ build:latest:
   - npm install -g yarn
   - yarn add node-sass
   - yarn install
+  - pwd
