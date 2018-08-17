@@ -17,3 +17,4 @@ build:latest:
   - touch /builds/kush/symfony-demo/var/data/blog.sqlite
   - touch /builds/kush/symfony-demo/var/data/blog_test.sqlite
   - ls -l /builds/kush/symfony-demo/var/data
+  - bin/console doctrine:database:create
